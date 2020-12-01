@@ -1,14 +1,13 @@
 package de.derniklaas.aoc2020.days;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
 
 public class Day1 {
 
-    private final List<Integer> input;
+    private final HashSet<Integer> input;
 
     public Day1(String[] input) {
-        this.input = new ArrayList<>();
+        this.input = new HashSet<>();
         for (String part : input) {
             part = part.trim();
             this.input.add(Integer.parseInt(part));
@@ -22,11 +21,9 @@ public class Day1 {
 
     private void printA() {
         for (int a : input) {
-            for (int b : input) {
-                if (a + b == 2020) {
-                    System.out.println("[Day 1/A] " + a * b);
-                    return;
-                }
+            if (input.contains(2020 - a)) {
+                System.out.println("[Day 1/A] " + a * (2020 - a));
+                return;
             }
         }
     }
@@ -34,11 +31,9 @@ public class Day1 {
     private void printB() {
         for (int a : input) {
             for (int b : input) {
-                for (int c : input) {
-                    if (a + b + c == 2020) {
-                        System.out.println("[Day 1/B] " + a * b * c);
-                        return;
-                    }
+                if (input.contains(2020 - a - b)) {
+                    System.out.println("[Day 1/B] " + a * b * (2020 - a - b));
+                    return;
                 }
             }
         }
