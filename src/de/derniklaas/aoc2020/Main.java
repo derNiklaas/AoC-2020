@@ -18,16 +18,14 @@ public class Main {
                 System.exit(-1);
             }
         }
-        String content = loadInputFile(day);
+        String[] content = loadInputFile(day);
         loadDay(day, content);
     }
 
-    private static void loadDay(int day, String content) {
+    private static void loadDay(int day, String[] content) {
         switch (day) {
             case 1: {
-                Day1 day1 = new Day1(content);
-                day1.printA();
-                day1.printB();
+                new Day1(content).printAnswers();
                 break;
             }
             default: {
@@ -37,7 +35,7 @@ public class Main {
         }
     }
 
-    private static String loadInputFile(int day) {
+    private static String[] loadInputFile(int day) {
         String content = "";
         try {
             InputStream stream = Main.class.getResourceAsStream("../../../inputs/day" + day + ".txt");
@@ -54,6 +52,6 @@ public class Main {
             System.err.println("Could not read file: inputs/day" + day + ".txt");
             System.exit(-2);
         }
-        return content;
+        return content.split("\n");
     }
 }

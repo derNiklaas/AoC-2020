@@ -7,16 +7,20 @@ public class Day1 {
 
     private final List<Integer> input;
 
-    public Day1(String input) {
+    public Day1(String[] input) {
         this.input = new ArrayList<>();
-        String[] parts = input.split("\n");
-        for (String part : parts) {
+        for (String part : input) {
             part = part.trim();
             this.input.add(Integer.parseInt(part));
         }
     }
 
-    public void printA() {
+    public void printAnswers() {
+        printA();
+        printB();
+    }
+
+    private void printA() {
         for (int a : input) {
             for (int b : input) {
                 if (a + b == 2020) {
@@ -27,7 +31,7 @@ public class Day1 {
         }
     }
 
-    public void printB() {
+    private void printB() {
         for (int a : input) {
             for (int b : input) {
                 for (int c : input) {
