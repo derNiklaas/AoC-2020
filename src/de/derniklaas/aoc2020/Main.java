@@ -1,5 +1,7 @@
 package de.derniklaas.aoc2020;
 
+import de.derniklaas.aoc2020.days.Day1;
+
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -23,7 +25,10 @@ public class Main {
     private static void loadDay(int day, String content) {
         switch (day) {
             case 1: {
-                //TODO: Day 1
+                Day1 day1 = new Day1(content);
+                day1.printA();
+                day1.printB();
+                break;
             }
             default: {
                 System.err.println("This day (" + day + ") hasn't been done yet.");
