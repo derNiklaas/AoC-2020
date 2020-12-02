@@ -1,12 +1,15 @@
 package de.derniklaas.aoc2020;
 
-import de.derniklaas.aoc2020.days.*;
+import de.derniklaas.aoc2020.days.Day1;
+import de.derniklaas.aoc2020.days.Day2;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
 public class Main {
+
+    public static boolean debug = false;
 
     public static void main(String[] args) {
         int day = 2;

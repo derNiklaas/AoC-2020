@@ -1,5 +1,7 @@
 package de.derniklaas.aoc2020.days;
 
+import de.derniklaas.aoc2020.Main;
+
 public class Day2 {
 
     private final String[] inputs;
@@ -14,6 +16,7 @@ public class Day2 {
     }
 
     private void printA() {
+        long start = System.nanoTime();
         int valid = 0;
         for (String input : inputs) {
             String[] parts = input.split(" ");
@@ -28,11 +31,16 @@ public class Day2 {
                 valid++;
             }
         }
+        long end = System.nanoTime();
 
         System.out.println("[Day 2/A] " + valid);
+        if (Main.debug) {
+            System.out.println("[Day 2/A] Time: " + (end - start) + " ns");
+        }
     }
 
     private void printB() {
+        long start = System.nanoTime();
         int valid = 0;
         for (String input : inputs) {
             String[] parts = input.split(" ");
@@ -47,8 +55,11 @@ public class Day2 {
                 valid++;
             }
         }
-
+        long end = System.nanoTime();
         System.out.println("[Day 2/B] " + valid);
+        if (Main.debug) {
+            System.out.println("[Day 2/B] Time: " + (end - start) + " ns");
+        }
     }
 
     private int countChars(String input, char wanted) {
