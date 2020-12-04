@@ -1,6 +1,7 @@
 package de.derniklaas.aoc2020.days;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Day4 {
@@ -184,15 +185,8 @@ public class Day4 {
             }
             if (eyeColor == null) skipped++;
             else {
-                boolean skip = true;
-                if (eyeColor.equalsIgnoreCase("amb")) skip = false;
-                if (eyeColor.equalsIgnoreCase("blu")) skip = false;
-                if (eyeColor.equalsIgnoreCase("brn")) skip = false;
-                if (eyeColor.equalsIgnoreCase("gry")) skip = false;
-                if (eyeColor.equalsIgnoreCase("grn")) skip = false;
-                if (eyeColor.equalsIgnoreCase("hzl")) skip = false;
-                if (eyeColor.equalsIgnoreCase("oth")) skip = false;
-                if (skip) skipped++;
+                List<String> validColors = Arrays.asList("amb", "blu", "brn", "gry", "grn", "hzl", "oth");
+                if (!validColors.contains(eyeColor)) skipped++;
             }
             if (passportID == null) skipped++;
             else if (!passportID.matches("[0-9]{9}")) skipped++;
