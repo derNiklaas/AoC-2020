@@ -1,9 +1,6 @@
 package de.derniklaas.aoc2020;
 
-import de.derniklaas.aoc2020.days.Day1;
-import de.derniklaas.aoc2020.days.Day2;
-import de.derniklaas.aoc2020.days.Day3;
-import de.derniklaas.aoc2020.days.Day4;
+import de.derniklaas.aoc2020.days.*;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -14,7 +11,7 @@ public class Main {
     public static boolean debug = false;
 
     public static void main(String[] args) {
-        int day = 4;
+        int day = 5;
         if (args.length == 1) {
             try {
                 day = Integer.parseInt(args[0]);
@@ -43,6 +40,10 @@ public class Main {
             }
             case 4: {
                 new Day4(content).printAnswers();
+                break;
+            }
+            case 5: {
+                new Day5(content).printAnswers();
                 break;
             }
             default: {
