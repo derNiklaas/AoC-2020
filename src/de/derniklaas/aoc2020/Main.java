@@ -11,7 +11,7 @@ public class Main {
     public static boolean debug = false;
 
     public static void main(String[] args) {
-        int day = 5;
+        int day = 6;
         if (args.length == 1) {
             try {
                 day = Integer.parseInt(args[0]);
@@ -44,6 +44,10 @@ public class Main {
             }
             case 5: {
                 new Day5(content).printAnswers();
+                break;
+            }
+            case 6: {
+                new Day6(content).printAnswers();
                 break;
             }
             default: {
