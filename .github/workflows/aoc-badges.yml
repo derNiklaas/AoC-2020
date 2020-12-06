@@ -1,0 +1,28 @@
+name: 🎄 Advent of Code Badges 🎄
+on:
+  schedule:
+    - cron: '0 12 1-25 12 *'
+  workflow_dispatch:
+  push:
+    paths:
+      - '**/Day*.java' # only if a days source file was modified
+jobs:
+  build:
+    name: ⭐ Update badges 📅
+    runs-on: ubuntu-latest
+    if: startsWith(github.repository, 'derNiklaas') # don't run in forks
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ssh-key: ${{ secrets.SSH_KEY }}
+      - uses: joblo2213/aoc-badges-action@v2
+        with:
+          userid: 455680
+          session: ${{ secrets.AOC_SESSION }}
+      - name: 📤 Push
+        run: |
+          git config --global user.email "<>"
+          git config --global user.name "GitHub Actions"
+          git add .
+          git diff-index --quiet HEAD || git commit --message "Update badges"
+          git push
