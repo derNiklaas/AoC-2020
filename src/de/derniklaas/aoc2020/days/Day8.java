@@ -20,12 +20,24 @@ public class Day8 {
     }
 
     private void printA() {
-        System.out.println("[Day 8/A] " + executeCode());
+        long start = System.nanoTime();
+        int output = executeCode();
+        long stop = System.nanoTime();
+        System.out.println("[Day 8/A] " + output);
+        if (Main.debug) {
+            System.out.println("[Day 8/A] Time: " + (stop - start) + " ns");
+        }
     }
 
     private void printB() {
+        long start = System.nanoTime();
         commands[193] = "nop 0"; // Magic Values am i right guys?
-        System.out.println("[Day 8/B] " + executeCode());
+        int output = executeCode();
+        long stop = System.nanoTime();
+        System.out.println("[Day 8/B] " + output);
+        if (Main.debug) {
+            System.out.println("[Day 8/B] Time: " + (stop - start) + " ns");
+        }
     }
 
     private int executeCode() {
