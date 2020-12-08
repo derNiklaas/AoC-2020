@@ -1,5 +1,7 @@
 package de.derniklaas.aoc2020.days;
 
+import de.derniklaas.aoc2020.Main;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -9,6 +11,7 @@ public class Day4 {
     private List<Passport> passports;
 
     public Day4(String[] input) {
+        long start = System.currentTimeMillis();
         passports = new ArrayList<>();
         Passport currentPassport = new Passport();
         for (String s : input) {
@@ -25,6 +28,10 @@ public class Day4 {
             }
         }
         passports.add(currentPassport);
+        long end = System.currentTimeMillis();
+        if (Main.debug) {
+            System.out.println("[Day 4/Constructor] Time: " + (end - start) + " ms");
+        }
     }
 
     public void printAnswers() {
@@ -33,19 +40,29 @@ public class Day4 {
     }
 
     private void printA() {
+        long start = System.currentTimeMillis();
         int valid = 0;
         for (Passport port : passports) {
             if (port.isValid_A()) valid++;
         }
+        long end = System.currentTimeMillis();
         System.out.println("[Day 4/A] " + valid);
+        if (Main.debug) {
+            System.out.println("[Day 4/A] Time: " + (end - start) + " ms");
+        }
     }
 
     private void printB() {
+        long start = System.currentTimeMillis();
         int valid = 0;
         for (Passport port : passports) {
             if (port.isValid_B()) valid++;
         }
+        long end = System.currentTimeMillis();
         System.out.println("[Day 4/B] " + valid);
+        if (Main.debug) {
+            System.out.println("[Day 4/A] Time: " + (end - start) + " ms");
+        }
     }
 
     private void inputKeyValue(Passport passport, String key, String value) {

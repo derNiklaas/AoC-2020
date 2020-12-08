@@ -1,5 +1,7 @@
 package de.derniklaas.aoc2020.days;
 
+import de.derniklaas.aoc2020.Main;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,6 +10,7 @@ public class Day6 {
     private final List<Group> groups;
 
     public Day6(String[] input) {
+        long start = System.currentTimeMillis();
         groups = new ArrayList<>();
         Group currentGroup = new Group();
         for (String s : input) {
@@ -27,6 +30,10 @@ public class Day6 {
             }
         }
         groups.add(currentGroup);
+        long end = System.currentTimeMillis();
+        if (Main.debug) {
+            System.out.println("[Day 6/Constructor] Time: " + (end - start) + " ms");
+        }
     }
 
     public void printAnswers() {
@@ -35,19 +42,29 @@ public class Day6 {
     }
 
     private void printA() {
+        long start = System.currentTimeMillis();
         int sum = 0;
         for (Group group : groups) {
             sum += group.size();
         }
+        long end = System.currentTimeMillis();
         System.out.println("[Day 6/A] " + sum);
+        if (Main.debug) {
+            System.out.println("[Day 6/A] Time: " + (end - start) + " ms");
+        }
     }
 
     private void printB() {
+        long start = System.currentTimeMillis();
         int sum = 0;
         for (Group group : groups) {
             sum += group.getUnambiguousVotes();
         }
+        long end = System.currentTimeMillis();
         System.out.println("[Day 6/B] " + sum);
+        if (Main.debug) {
+            System.out.println("[Day 6/B] Time: " + (end - start) + " ms");
+        }
     }
 
     private static class Group {

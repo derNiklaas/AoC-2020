@@ -1,5 +1,7 @@
 package de.derniklaas.aoc2020.days;
 
+import de.derniklaas.aoc2020.Main;
+
 import java.util.*;
 
 public class Day7 {
@@ -7,6 +9,7 @@ public class Day7 {
     private List<Trade> trades = new ArrayList<>();
 
     public Day7(String[] input) {
+        long start = System.currentTimeMillis();
         for (String s : input) {
             if (!s.contains("no other")) {
                 String[] parts = s.split("contain");
@@ -30,6 +33,10 @@ public class Day7 {
                 trades.add(new Trade(bag, results));
             }
         }
+        long end = System.currentTimeMillis();
+        if (Main.debug) {
+            System.out.println("[Day 7/Constructor] Time: " + (end - start) + " ms");
+        }
     }
 
     public void printAnswers() {
@@ -38,15 +45,25 @@ public class Day7 {
     }
 
     private void printA() {
+        long start = System.currentTimeMillis();
         int size = findBag(new Bag("shiny gold", 1), new HashSet<>()).size() - 1;
+        long end = System.currentTimeMillis();
         System.out.println("[Day 7/A] " + size);
+        if (Main.debug) {
+            System.out.println("[Day 7/A] Time: " + (end - start) + " ms");
+        }
     }
 
     private void printB() {
+        long start = System.currentTimeMillis();
         List<Bag> left = new ArrayList<>();
         left.add(new Bag("shiny gold", 1));
         int amount = findAmountOfBags(left) - 1;
+        long end = System.currentTimeMillis();
         System.out.println("[Day 7/B] " + amount);
+        if (Main.debug) {
+            System.out.println("[Day 7/B] Time: " + (end - start) + " ms");
+        }
     }
 
     private Set<String> findBag(Bag item, Set<String> visitedColors) {
