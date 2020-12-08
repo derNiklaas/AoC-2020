@@ -9,6 +9,7 @@ public class Day8 {
 
     private final String[] commands;
     private final List<String> visitedValues = new ArrayList<>();
+    private final boolean debug = false;
 
     public Day8(String[] input) {
         this.commands = input;
@@ -54,20 +55,20 @@ public class Day8 {
             visitedValues.add(position + "");
             switch (command) {
                 case "nop": {
-                    if (Main.debug) System.out.println("[" + position + "] NOP - " + amount);
+                    if (this.debug) System.out.println("[" + position + "] NOP - " + amount);
                     position++;
                     break;
                 }
                 case "acc": {
                     accumulator += amount;
                     position++;
-                    if (Main.debug) System.out.println("[" + position + "] ACC - " + amount + " - " + accumulator);
+                    if (this.debug) System.out.println("[" + position + "] ACC - " + amount + " - " + accumulator);
                     break;
                 }
                 case "jmp": {
                     int old = position;
                     position += amount;
-                    if (Main.debug)
+                    if (this.debug)
                         System.out.println("[" + old + "] JMP - " + old + " + " + amount + " -> " + position);
                     break;
                 }
