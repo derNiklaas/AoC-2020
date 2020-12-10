@@ -22,6 +22,15 @@ public class Main {
         }
         String[] content = loadInputFile(day);
         loadDay(day, content);
+        boolean timeAll = false;
+        if (timeAll) {
+            long start = System.currentTimeMillis();
+            for (int i = 1; i < 11; i++) {
+                loadDay(i, loadInputFile(i));
+            }
+            long end = System.currentTimeMillis();
+            System.out.println("[All days] " + (end - start) + " ms");
+        }
     }
 
     private static void loadDay(int day, String[] content) {
