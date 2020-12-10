@@ -1,17 +1,29 @@
 package de.derniklaas.aoc2020.days;
 
+import de.derniklaas.aoc2020.Main;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class Day10 {
 
-    private final List<Integer> input;
+    private final List<Integer> ratings;
+    private final Map<Integer, Long> branches;
 
     public Day10(String[] input) {
-        this.input = new ArrayList<>();
+        long start = System.currentTimeMillis();
+        List<Integer> ratings = new ArrayList<>();
+        branches = new HashMap<>();
         for (String s : input) {
-            this.input.add(Integer.parseInt(s));
+            ratings.add(Integer.parseInt(s));
+        }
+        this.ratings = ratings.stream().sorted().collect(Collectors.toList());
+        long end = System.currentTimeMillis();
+        if (Main.debug) {
+            System.out.println("[Day10/Constructor] Time: " + (end - start) + " ms");
         }
     }
 
@@ -21,10 +33,9 @@ public class Day10 {
     }
 
     private void printA() {
+        long start = System.nanoTime();
         int oneDiff = 0;
         int threeDiff = 1;
-
-        List<Integer> ratings = input.stream().sorted().collect(Collectors.toList());
 
         int prev = 0;
         for (int i : ratings) {
@@ -35,10 +46,44 @@ public class Day10 {
 
         System.out.println("[Day 10/A] " + (oneDiff * threeDiff));
 
+        long end = System.nanoTime();
+        if (Main.debug) {
+            System.out.println("[Day 10/A] Time: " + (end - start) + " ns");
+        }
     }
 
     private void printB() {
+        long start = System.nanoTime();
+        int combo = 0;
+        int prev = 0;
+        long total = 1L;
+        for (int i : ratings) {
+            if (i - 1 == prev) combo++;
+            else if (combo != 0) {
+                total *= getAmount(combo);
+                combo = 0;
+            }
+            prev = i;
+        }
+        if (combo != 0) total *= getAmount(combo);
+        System.out.println("[Day 10/B] " + total);
+        long end = System.nanoTime();
+        if (Main.debug) {
+            System.out.println("[Day 10/B] Time: " + (end - start) + " ns");
+        }
+    }
 
+    private long getAmount(int depth) {
+        if (!branches.containsKey(depth)) branches.put(depth, count(0, depth));
+        return branches.get(depth);
+    }
+
+    private long count(int depth, int endDepth) {
+        if (depth == endDepth) return 1L;
+        if (depth > endDepth) return 0L;
+        long count = 0;
+        for (int i = 1; i <= 3; i++) count += count(depth + i, endDepth);
+        return count;
     }
 }
 
