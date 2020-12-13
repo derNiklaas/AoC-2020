@@ -25,7 +25,7 @@ public class Main {
         boolean timeAll = false;
         if (timeAll) {
             long start = System.currentTimeMillis();
-            for (int i = 1; i < 11; i++) {
+            for (int i = 1; i < 14; i++) {
                 loadDay(i, loadInputFile(i));
             }
             long end = System.currentTimeMillis();

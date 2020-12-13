@@ -1,5 +1,7 @@
 package de.derniklaas.aoc2020.days;
 
+import de.derniklaas.aoc2020.Main;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,6 +26,7 @@ public class Day13 {
     }
 
     private void printA() {
+        long start = System.currentTimeMillis();
         int minDiff = 100000;
         int minID = 0;
         for (Bus bus : buses) {
@@ -37,10 +40,15 @@ public class Day13 {
             }
         }
         int out = minDiff * minID;
+        long end = System.currentTimeMillis();
         System.out.println("[Day 13/A] " + out);
+        if (Main.debug) {
+            System.out.println("[Day 13/B] Time: " + (end - start) + " ms");
+        }
     }
 
     private void printB() {
+        long start = System.currentTimeMillis();
         long product = 1;
         for (Bus bus : buses) {
             product *= bus.getId();
@@ -52,7 +60,11 @@ public class Day13 {
 
         long output = product - sum % product;
 
+        long end = System.currentTimeMillis();
         System.out.println("[Day 13/B] " + output);
+        if (Main.debug) {
+            System.out.println("[Day 13/B] Time: " + (end - start) + " ms");
+        }
     }
 
     private long inverseModulo(long a, long b) {

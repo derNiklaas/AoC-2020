@@ -1,5 +1,7 @@
 package de.derniklaas.aoc2020.days;
 
+import de.derniklaas.aoc2020.Main;
+
 public class Day12 {
 
     private final String[] input;
@@ -14,6 +16,7 @@ public class Day12 {
     }
 
     private void printA() {
+        long start = System.currentTimeMillis();
         int direction = 90;
         int x = 0;
         int y = 0;
@@ -66,10 +69,16 @@ public class Day12 {
             }
         }
         int sum = Math.abs(x) + Math.abs(y);
+        long end = System.currentTimeMillis();
         System.out.println("[Day 12/A] " + sum);
+        if (Main.debug) {
+            System.out.println("[Day 12/A] Time: " + (end - start) + " ms");
+        }
     }
 
     private void printB() {
+        long start = System.currentTimeMillis();
+
         int waypointY = 1;
         int waypointX = 10;
         int direction = 90;
@@ -127,10 +136,13 @@ public class Day12 {
                     break;
                 }
             }
-            //System.out.println("x= " + x + " y= " + y + " facing= " + direction + " waypointX= " + waypointX + " waypointY= " + waypointY);
         }
         int sum = Math.abs(x) + Math.abs(y);
+        long end = System.currentTimeMillis();
         System.out.println("[Day 12/B] " + sum);
+        if (Main.debug) {
+            System.out.println("[Day 12/A] Time: " + (end - start) + " ms");
+        }
     }
 
     private int calcWaypointDirectionX(int waypointX, int waypointY, int direction, int oldDirection) {
