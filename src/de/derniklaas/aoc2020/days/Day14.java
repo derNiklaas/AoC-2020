@@ -1,5 +1,7 @@
 package de.derniklaas.aoc2020.days;
 
+import de.derniklaas.aoc2020.Main;
+
 import java.util.*;
 
 public class Day14 {
@@ -16,21 +18,31 @@ public class Day14 {
     }
 
     private void printA() {
+        long start = System.currentTimeMillis();
         Map<Integer, Long> memory = parseA();
         long sum = 0;
         for (long value : memory.values()) {
             sum += value;
         }
+        long end = System.currentTimeMillis();
         System.out.println("[Day 14/A] " + sum);
+        if (Main.debug) {
+            System.out.println("[Day 14/A] Time: " + (end - start) + " ms");
+        }
     }
 
     private void printB() {
+        long start = System.currentTimeMillis();
         Map<String, Integer> memory = parseB();
         long sum = 0;
         for (int value : memory.values()) {
             sum += value;
         }
+        long end = System.currentTimeMillis();
         System.out.println("[Day 14/B] " + sum);
+        if (Main.debug) {
+            System.out.println("[Day 14/B] Time: " + (end - start) + " ms");
+        }
     }
 
     private Map<Integer, Long> parseA() {

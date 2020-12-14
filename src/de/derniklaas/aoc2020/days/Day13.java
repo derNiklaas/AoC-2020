@@ -43,7 +43,7 @@ public class Day13 {
         long end = System.currentTimeMillis();
         System.out.println("[Day 13/A] " + out);
         if (Main.debug) {
-            System.out.println("[Day 13/B] Time: " + (end - start) + " ms");
+            System.out.println("[Day 13/A] Time: " + (end - start) + " ms");
         }
     }
 
