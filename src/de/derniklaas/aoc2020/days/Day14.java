@@ -1,7 +1,5 @@
 package de.derniklaas.aoc2020.days;
 
-import sun.plugin.dom.exception.InvalidStateException;
-
 import java.util.*;
 
 public class Day14 {
@@ -118,6 +116,6 @@ public class Day14 {
             output.addAll(part1);
             return output;
         }
-        throw new InvalidStateException("this shouldn't happen");
+        throw new IllegalStateException("this shouldn't happen");
     }
 }
