@@ -11,7 +11,7 @@ public class Main {
     public static boolean debug = false;
 
     public static void main(String[] args) {
-        int day = 14;
+        int day = 15;
         if (args.length == 1) {
             try {
                 day = Integer.parseInt(args[0]);
@@ -25,7 +25,7 @@ public class Main {
         boolean timeAll = false;
         if (timeAll) {
             long start = System.currentTimeMillis();
-            for (int i = 1; i < 14; i++) {
+            for (int i = 1; i < 16; i++) {
                 loadDay(i, loadInputFile(i));
             }
             long end = System.currentTimeMillis();
@@ -89,6 +89,10 @@ public class Main {
             }
             case 14: {
                 new Day14(content).printAnswers();
+                break;
+            }
+            case 15: {
+                new Day15(content).printAnswers();
                 break;
             }
             default: {
