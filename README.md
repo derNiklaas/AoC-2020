@@ -1,6 +1,6 @@
 # Advent of Code 2020
 
-![](https://img.shields.io/badge/Language-Java-orange) ![](https://img.shields.io/badge/days%20completed-15-red) ![](https://img.shields.io/badge/stars%20⭐-30-yellow)
+![](https://img.shields.io/badge/Language-Java-orange) ![](https://img.shields.io/badge/days%20completed-16-red) ![](https://img.shields.io/badge/stars%20⭐-32-yellow)
 
 ### About Advent of Code
 
