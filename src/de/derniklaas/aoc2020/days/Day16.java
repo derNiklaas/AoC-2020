@@ -1,5 +1,7 @@
 package de.derniklaas.aoc2020.days;
 
+import de.derniklaas.aoc2020.Main;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -46,6 +48,7 @@ public class Day16 {
     }
 
     private void printA() {
+        long start = System.currentTimeMillis();
         long sum = 0;
         for (String ticket : nearbyTickets) {
             String[] fields = ticket.split(",");
@@ -76,15 +79,16 @@ public class Day16 {
                 validTickets.add(ticket);
             }
         }
-        if (sum == 28884) {
-            System.out.println("ok");
-        }
+        long end = System.currentTimeMillis();
         System.out.println("[Day 16/A] " + sum);
+        if (Main.debug) {
+            System.out.println("[Day 16/A] Time: " + (end - start) + "ms");
+        }
     }
 
     private void printB() {
-        while (calculatePartB()) {
-        }
+        long start = System.currentTimeMillis();
+        while (calculatePartB()) {}
 
         long product = 1;
         String[] myTicketParts = myTicket.split(",");
@@ -96,7 +100,11 @@ public class Day16 {
                 }
             }
         }
+        long end = System.currentTimeMillis();
         System.out.println("[Day 16/B] " + product);
+        if (Main.debug) {
+            System.out.println("[Day 16/B] Time: " + (end - start) + "ms");
+        }
     }
 
     private boolean calculatePartB() {
