@@ -50,6 +50,7 @@ public class Day16 {
     private void printA() {
         long start = System.currentTimeMillis();
         long sum = 0;
+        String firstField = ticketFields.keySet().stream().findFirst().orElse("duration");
         for (String ticket : nearbyTickets) {
             String[] fields = ticket.split(",");
             boolean ticketOK = true;
@@ -58,14 +59,14 @@ public class Day16 {
                 boolean ok = false;
                 if (!ticket.startsWith(field + ",")) {
                     for (String fieldName : ticketFields.keySet()) {
-                        if (fieldName.equalsIgnoreCase("duration")) continue;
+                        if (fieldName.equalsIgnoreCase(firstField)) continue;
                         TicketField ticketField = ticketFields.get(fieldName);
                         if (ticketField.isInRange(number)) {
                             ok = true;
                         }
                     }
                 } else {
-                    TicketField ticketField = ticketFields.get("duration");
+                    TicketField ticketField = ticketFields.get(firstField);
                     if (ticketField.isInRange(number)) {
                         ok = true;
                     }
