@@ -8,7 +8,7 @@ import java.util.Set;
 
 public class Day17 {
 
-    private Set<Pos4D> initialState;
+    private final Set<Pos4D> initialState;
 
     public Day17(String[] input) {
         initialState = new HashSet<>();
